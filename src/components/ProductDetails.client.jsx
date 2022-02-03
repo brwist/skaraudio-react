@@ -7,6 +7,7 @@ import {
   BUTTON_PRIMARY_CLASSES,
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
+import { DescriptionTabs } from "./custom/description-tabs.jsx";
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
@@ -18,7 +19,7 @@ function ProductPriceMarkup() {
         priceType="compareAt"
         className="text-gray-500 line-through text-lg mr-2.5"
       >
-        {({amount, currencyNarrowSymbol}) => `${currencyNarrowSymbol}${amount}`}
+        {({amount, currencyNarrowSymbol}) => `Normal price: ${currencyNarrowSymbol}${amount}`}
       </Product.SelectedVariant.Price>
       <Product.SelectedVariant.Price className="text-gray-900">
         {({currencyCode, amount, currencyNarrowSymbol}) =>
@@ -48,12 +49,12 @@ function AddToCartMarkup() {
       </Product.SelectedVariant.AddToCartButton>
       {isOutOfStock ? (
         <p className="text-black text-center">Available in 2-3 weeks</p>
-      ) : (
-        <Product.SelectedVariant.BuyNowButton
+      ) : (<></>
+        /*<Product.SelectedVariant.BuyNowButton
           className={BUTTON_SECONDARY_CLASSES}
         >
           Buy it now
-        </Product.SelectedVariant.BuyNowButton>
+        </Product.SelectedVariant.BuyNowButton>*/
       )}
     </div>
   );
@@ -139,11 +140,11 @@ export default function ProductDetails({product}) {
                 as="h1"
                 className="text-5xl font-bold text-black mb-4"
               />
-              {product.vendor && (
+              {/*{product.vendor && (
                 <div className="text-sm font-medium mb-2 text-gray-900">
                   {product.vendor}
                 </div>
-              )}
+              )}*/}
               <ProductPriceMarkup />
             </div>
             {/* Product Options */}
@@ -221,6 +222,7 @@ export default function ProductDetails({product}) {
               </div>
             </div>
             {/* Product Description */}
+            <DescriptionTabs />
             <Product.Description className="prose border-t border-gray-200 pt-6 text-black text-md" />
             <Product.Metafield namespace="my_fields" keyName="size_chart">
               {({value}) => {

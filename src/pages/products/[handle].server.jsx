@@ -20,7 +20,7 @@ export default function Product({country = {isoCode: 'US'}, params}) {
     return <NotFound />;
   }
 
-  console.log(data.product);
+  // console.log(data.product);
 
   return (
     <Layout>
