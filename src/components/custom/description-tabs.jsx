@@ -61,7 +61,7 @@ export function FourTabs({tabNames, sections}) {
               leading-tight
               uppercase
               border-x-0 border-t-0 border-b-2 border-transparent
-              px-6
+              px-3
               py-3
               my-2
               hover:border-transparent hover:bg-gray-100

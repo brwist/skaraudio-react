@@ -228,7 +228,7 @@ export default function ProductDetails({product}) {
             </div>
             {/* Product Description */}
             <DescriptionTabs descriptionHtml={product.descriptionHtml} />
-            <Product.Description className="prose border-t border-gray-200 pt-6 text-black text-md" />
+            {/*<Product.Description className="prose border-t border-gray-200 pt-6 text-black text-md" />*/}
             <Product.Metafield namespace="my_fields" keyName="size_chart">
               {({value}) => {
                 return value ? (
