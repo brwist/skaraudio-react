@@ -7,7 +7,7 @@ import {
   BUTTON_PRIMARY_CLASSES,
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
-import { DescriptionTabs } from "./custom/description-tabs.jsx";
+import {DescriptionTabs} from './custom/description-tabs.jsx';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
@@ -19,7 +19,9 @@ function ProductPriceMarkup() {
         priceType="compareAt"
         className="text-gray-500 line-through text-lg mr-2.5"
       >
-        {({amount, currencyNarrowSymbol}) => `Normal price: ${currencyNarrowSymbol}${amount}`}
+        {({amount, currencyNarrowSymbol}) =>
+          `Normal price: ${currencyNarrowSymbol}${amount}`
+        }
       </Product.SelectedVariant.Price>
       <Product.SelectedVariant.Price className="text-gray-900">
         {({currencyCode, amount, currencyNarrowSymbol}) =>
@@ -49,7 +51,8 @@ function AddToCartMarkup() {
       </Product.SelectedVariant.AddToCartButton>
       {isOutOfStock ? (
         <p className="text-black text-center">Available in 2-3 weeks</p>
-      ) : (<></>
+      ) : (
+        <></>
         /*<Product.SelectedVariant.BuyNowButton
           className={BUTTON_SECONDARY_CLASSES}
         >
@@ -109,13 +112,15 @@ function SizeChart() {
 }
 
 export default function ProductDetails({product}) {
+  // const {selectedOptions} = useProduct();
   const initialVariant = flattenConnection(product.variants)[0];
+  // console.log(selectedOptions);
 
   return (
     <>
       <Seo product={product} />
       <Product product={product} initialVariantId={initialVariant.id}>
-        <div className="grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-8 my-16">
+        <div className="grid grid-cols-1 md:grid-cols-[3fr,2fr] gap-x-8 my-16">
           <div className="md:hidden mt-5 mb-8">
             <Product.Title
               as="h1"
@@ -222,7 +227,7 @@ export default function ProductDetails({product}) {
               </div>
             </div>
             {/* Product Description */}
-            <DescriptionTabs />
+            <DescriptionTabs descriptionHtml={product.descriptionHtml} />
             <Product.Description className="prose border-t border-gray-200 pt-6 text-black text-md" />
             <Product.Metafield namespace="my_fields" keyName="size_chart">
               {({value}) => {
