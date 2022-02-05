@@ -8,6 +8,7 @@ import {
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
 import {DescriptionTabs} from './custom/description-tabs.jsx';
+import { ProductQuantitySelector } from './product/quantity-selector';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
@@ -15,7 +16,7 @@ import {DescriptionTabs} from './custom/description-tabs.jsx';
 function ProductPriceMarkup() {
   return (
     <div className="flex md:flex-col items-end font-semibold text-lg md:items-start md:mb-4">
-      <Product.SelectedVariant.Price
+      <Product.SelectedVariant.Price 
         priceType="compareAt"
         className="text-gray-500 line-through text-lg mr-2.5"
       >
@@ -25,7 +26,7 @@ function ProductPriceMarkup() {
       </Product.SelectedVariant.Price>
       <Product.SelectedVariant.Price className="text-gray-900">
         {({currencyCode, amount, currencyNarrowSymbol}) =>
-          `${currencyCode} ${currencyNarrowSymbol}${amount}`
+          `Sale Price: ${currencyCode} ${currencyNarrowSymbol}${amount}`
         }
       </Product.SelectedVariant.Price>
       <Product.SelectedVariant.UnitPrice className="text-gray-500">
@@ -42,12 +43,14 @@ function AddToCartMarkup() {
   const isOutOfStock = !selectedVariant.availableForSale;
 
   return (
-    <div className="space-y-2 mb-8">
+    <div className="space-y-2 mb-8 flex">
+      <ProductQuantitySelector />
       <Product.SelectedVariant.AddToCartButton
         className={BUTTON_PRIMARY_CLASSES}
         disabled={isOutOfStock}
+        style={{margin: 0}}
       >
-        {isOutOfStock ? 'Out of stock' : 'Add to bag'}
+        {isOutOfStock ? 'Out of stock' : 'Add to Cart'}
       </Product.SelectedVariant.AddToCartButton>
       {isOutOfStock ? (
         <p className="text-black text-center">Available in 2-3 weeks</p>

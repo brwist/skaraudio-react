@@ -14,7 +14,7 @@ export default function ProductOptions() {
             <legend className="mb-4 text-xl font-medium text-gray-900">
               {name}
             </legend>
-            <div className="flex items-center flex-wrap gap-4">
+            <div className="flex items-center flex-wrap gap-4 mb-4">
               {values.map((value) => {
                 const checked = selectedOptions[name] === value;
                 const id = `option-${name}-${value}`;
