@@ -8,7 +8,7 @@ import {
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
 import {DescriptionTabs} from './custom/description-tabs.jsx';
-import { ProductQuantitySelector } from './product/quantity-selector';
+import { ProductQuantitySelector } from './product/QuantitySelector';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
