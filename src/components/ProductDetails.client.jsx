@@ -8,7 +8,7 @@ import {
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
 import {DescriptionTabs} from './custom/description-tabs.jsx';
-import { ProductQuantitySelector } from './product/QuantitySelector';
+import {ProductQuantitySelector} from './product/QuantitySelector.client';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
@@ -114,7 +114,8 @@ function SizeChart() {
   );
 }
 
-export default function ProductDetails({product}) {
+export default function ProductDetails(props) {
+  let product = props.product;
   // const {selectedOptions} = useProduct();
   const initialVariant = flattenConnection(product.variants)[0];
   // console.log(selectedOptions);
@@ -146,7 +147,7 @@ export default function ProductDetails({product}) {
             <div className="hidden md:block">
               <Product.Title
                 as="h1"
-                className="text-5xl font-bold text-black mb-4"
+                className="text-4xl font-bold text-black mb-4"
               />
               {/*{product.vendor && (
                 <div className="text-sm font-medium mb-2 text-gray-900">
