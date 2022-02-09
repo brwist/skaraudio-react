@@ -15,10 +15,10 @@ import {ProductQuantitySelector} from './product/QuantitySelector.client';
  */
 function ProductPriceMarkup() {
   return (
-    <div className="flex md:flex-col items-end font-semibold text-lg md:items-start md:mb-4">
+    <div className="flex md:flex-col items-end font-semibold text-sm md:items-start md:mb-4">
       <Product.SelectedVariant.Price 
         priceType="compareAt"
-        className="text-gray-500 line-through text-lg mr-2.5"
+        className="text-gray-500 line-through mr-2.5"
       >
         {({amount, currencyNarrowSymbol}) =>
           `Normal price: ${currencyNarrowSymbol}${amount}`
@@ -44,7 +44,9 @@ function AddToCartMarkup() {
 
   return (
     <div className="space-y-2 mb-8 flex">
-      <ProductQuantitySelector />
+      {!isOutOfStock ? (
+          <ProductQuantitySelector />
+      ):(<></>)}
       <Product.SelectedVariant.AddToCartButton
         className={BUTTON_PRIMARY_CLASSES}
         disabled={isOutOfStock}
@@ -147,6 +149,7 @@ export default function ProductDetails(props) {
             <div className="hidden md:block">
               <Product.Title
                 as="h1"
+                style={{'font-family': "'Garamond', Garamond, serif !important"}}
                 className="text-4xl font-bold text-black mb-4"
               />
               {/*{product.vendor && (
