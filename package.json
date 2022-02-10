@@ -42,6 +42,7 @@
     "graphql-tag": "^2.12.4",
     "path-to-regexp": "^6.2.0",
     "react": "0.0.0-experimental-529dc3ce8-20220124",
+    "react-bootstrap": "^2.1.2",
     "react-dom": "0.0.0-experimental-529dc3ce8-20220124",
     "react-router-dom": "^5.2.0",
     "sass": "^1.49.7",
