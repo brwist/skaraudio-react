@@ -16,20 +16,30 @@ function ChevronDownIcon() {
 }
 
 export default function Navigation({collections}) {
+  // console.log(collections);
+
   return (
     <div className={"hidden lg:flex flex-row justify-between"}>
       {collections.map((collection)=>(
+
         <NavDropdown
           key={'collection.id'}
           className={'py-2 align-text-top'}
           title={collection.title}
         >
-          <Dropdown.Header>Hi!</Dropdown.Header>
           <Dropdown.Item>
             <Link to={`/collections/${collection.handle}`}>
-              <a className="nav-link">Hello World</a>
+              <a className={'nav-link'}>All</a>
             </Link>
           </Dropdown.Item>
+          <Dropdown.Header>Products</Dropdown.Header>
+          {collection.products.edges.map((product) => (
+            <Dropdown.Item>
+              <Link to={`/products/${product.node.handle}`}>
+                <a className="nav-link">{product.node.title}</a>
+              </Link>
+            </Dropdown.Item>
+          ))}
         </NavDropdown>
       ))
       }

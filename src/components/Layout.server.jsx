@@ -2,6 +2,7 @@ import {
   Image,
   useShopQuery,
   flattenConnection,
+  ProductProviderFragment,
   LocalizationProvider,
 } from '@shopify/hydrogen';
 import gql from 'graphql-tag';
@@ -10,6 +11,7 @@ import Header from './Header.client';
 import Footer from './Footer.server';
 import Cart from './Cart.client';
 import {Suspense} from 'react';
+import PreHeaderBar from './PreHeaderBar.server';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
@@ -19,6 +21,7 @@ export default function Layout({children, hero}) {
     query: QUERY,
     variables: {
       numCollections: 4,
+      numProducts: 6,
     },
     cache: {
       maxAge: 60,
@@ -42,6 +45,7 @@ export default function Layout({children, hero}) {
       <div className="min-h-screen max-w-screen text-gray-700 font-sans">
         {/* TODO: Find out why Suspense needs to be here to prevent hydration errors. */}
         <Suspense fallback={null}>
+          <PreHeaderBar />
           <Header collections={collections} storeName={storeName} />
           <Cart />
         </Suspense>
@@ -58,7 +62,17 @@ export default function Layout({children, hero}) {
 }
 
 const QUERY = gql`
-  query indexContent($numCollections: Int!) {
+  query indexContent(
+    $includeReferenceMetafieldDetails: Boolean = false
+    $numProductMetafields: Int = 20
+    $numProductVariants: Int = 250
+    $numProductMedia: Int = 6
+    $numProductVariantMetafields: Int = 10
+    $numProductVariantSellingPlanAllocations: Int = 0
+    $numProductSellingPlanGroups: Int = 0
+    $numProductSellingPlans: Int = 0
+    $numCollections: Int!, 
+    $numProducts: Int!) {
     shop {
       name
     }
@@ -72,6 +86,14 @@ const QUERY = gql`
           image {
             ...ImageFragment
           }
+          products(first: $numProducts) {
+            edges {
+              node {
+                handle
+                ...ProductProviderFragment
+              }
+            }
+          }
         }
       }
     }
@@ -83,5 +105,7 @@ const QUERY = gql`
       }
     }
   }
+
+  ${ProductProviderFragment}
   ${Image.Fragment}
 `;

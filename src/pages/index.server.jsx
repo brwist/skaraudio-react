@@ -15,9 +15,8 @@ import {Suspense} from 'react';
 
 export default function Index({country = {isoCode: 'US'}}) {
   return (
-    <Layout hero={<GradientBackground />}>
+    <Layout hero={<Welcome />}>
       <div className="relative mb-12">
-        <Welcome />
         <Suspense fallback={<BoxFallback />}>
           <FeaturedProductsBox country={country} />
         </Suspense>
@@ -186,6 +185,7 @@ const QUERY = gql`
           products(first: $numProducts) {
             edges {
               node {
+                title
                 ...ProductProviderFragment
               }
             }
