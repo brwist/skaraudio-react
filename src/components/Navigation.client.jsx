@@ -71,3 +71,4 @@ export function _Navigation({collections}) {
     </nav>
   );
 }
+
