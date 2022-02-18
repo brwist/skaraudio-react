@@ -17,11 +17,11 @@ export default function Header({collections, storeName}) {
   return (
     <>
       <header
-        className="sticky top-0 left-0 right-0 h-20 lg:h-48 z-20 w-full bg-slate-700 transition-[height] ease-in-out duration-500"
+        className="sticky top-0 left-0 right-0 z-20 w-full bg-slate-700 transition-[height] ease-in-out duration-500"
         role="banner"
       >
         <div
-          className={`h-20 lg:h-32 px-6 md:px-8 md:py-6 lg:pt-8 lg:pb-0 mx-auto ${
+          className={`px-6 md:px-8 md:py-6 lg:pt-4 lg:pb-0 mx-auto ${
             isMobileNavOpen ? '' : 'bg-opacity-95'
           }`}
         >
@@ -46,7 +46,9 @@ export default function Header({collections, storeName}) {
                 to="/"
               >
                 {/*{storeName}*/}
-                <img className={"lg:h-24 h-16 transition-all ease-in-out duration-500"} src={'/image/site-logo.webp'}  alt={"Site Logo"}/>
+                <img className={"transition-all ease-in-out duration-500"} src={'/image/site-logo.webp'}  alt={"Site Logo"}
+                     style={{width: 205, height: 63}}
+                />
               </Link>
               <CartToggle
                 handleClick={() => {

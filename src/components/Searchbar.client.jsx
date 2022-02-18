@@ -5,7 +5,7 @@ export default function SearchBar() {
   let history = useHistory();
 
   function callback($evt){
-      if ($evt.key == "Enter") {
+      if ($evt.key === "Enter") {
           console.log($evt.target.value);
           history.push("/search/"+$evt.target.value)
       }
@@ -14,6 +14,7 @@ export default function SearchBar() {
   return (
     <div className={'relative'}>
       <input
+        className="p-1"
         type="text"
         onKeyDown={callback.bind(this)}
         placeholder={'Search'}
