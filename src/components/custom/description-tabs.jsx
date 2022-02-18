@@ -44,7 +44,7 @@ export function FourTabs({tabNames, sections}) {
   return (
     <>
       <ul
-        className="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"
+        className="nav nav-tabs flex flex-col justify-left md:flex-row flex-wrap list-none pl-1 pb-0"
         id="tabs-tab"
         role="tablist"
       >
@@ -60,11 +60,12 @@ export function FourTabs({tabNames, sections}) {
               text-xs
               leading-tight
               uppercase
-              border-x-0 border-t-0 border-b-2 border-transparent
-              px-3
-              py-3
+              md:px-1
+              md:py-1
+              lg:px-3
+              lg:px-3
               my-2
-              hover:border-transparent hover:bg-gray-100
+              hover:bg-gray-100
               focus:border-transparent ` + (tab === tabName ? 'active' : '')
               }
               id="tabs-home-tab"

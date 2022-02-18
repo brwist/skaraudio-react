@@ -11,6 +11,7 @@ import LoadMoreProducts from '../../components/LoadMoreProducts.client';
 import Layout from '../../components/Layout.server';
 import ProductCard from '../../components/ProductCard';
 import NotFound from '../../components/NotFound.server';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
 export default function Collection({
   country = {isoCode: 'US'},
@@ -37,6 +38,7 @@ export default function Collection({
 
   return (
     <Layout>
+      <Breadcrumbs routes={[[null, collection.title]]} />
       <h1 className="font-bold text-4xl md:text-5xl text-gray-900 mb-6 mt-6">
         {collection.title}
       </h1>

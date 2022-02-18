@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import ProductDetails from '../../components/ProductDetails.client';
 import NotFound from '../../components/NotFound.server';
 import Layout from '../../components/Layout.server';
+import Breadcrumbs from '../../components/Breadcrumbs';
 
 export default function Product({country = {isoCode: 'US'}, params}) {
   const {handle} = params;
@@ -24,6 +25,7 @@ export default function Product({country = {isoCode: 'US'}, params}) {
 
   return (
     <Layout>
+      <Breadcrumbs routes={[[null, data.product.title]]} />
       <ProductDetails product={data.product} />
     </Layout>
   );

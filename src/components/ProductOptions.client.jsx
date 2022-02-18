@@ -6,6 +6,18 @@ import {useProduct} from '@shopify/hydrogen/client';
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions} = useProduct();
 
+  // let url = new URL(window.location.href);
+  // let variant = url.searchParams.get('variant');
+  // console.log(variant);
+
+  // Note: Once we bump to hydrogen v 0.11.x the useUrl hook will be available for this
+  // const urlData = useUrl();
+  //
+  // let variantId = urlData.searchParams.get('variant');
+  // if (variantId != null) {
+  //   console.log('Hello Varient', variantId);
+  // }
+
   return (
     <>
       {options.map(({name, values}) => {

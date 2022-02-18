@@ -8,17 +8,17 @@ import {
   BUTTON_SECONDARY_CLASSES,
 } from './Button.client';
 import {DescriptionTabs} from './custom/description-tabs.jsx';
-import { ProductQuantitySelector } from './product/QuantitySelector';
+import {ProductQuantitySelector} from './product/QuantitySelector.client';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
  */
 function ProductPriceMarkup() {
   return (
-    <div className="flex md:flex-col items-end font-semibold text-lg md:items-start md:mb-4">
+    <div className="flex md:flex-col items-end font-semibold text-sm md:items-start md:mb-4">
       <Product.SelectedVariant.Price 
         priceType="compareAt"
-        className="text-gray-500 line-through text-lg mr-2.5"
+        className="text-gray-500 line-through mr-2.5"
       >
         {({amount, currencyNarrowSymbol}) =>
           `Normal price: ${currencyNarrowSymbol}${amount}`
@@ -44,7 +44,9 @@ function AddToCartMarkup() {
 
   return (
     <div className="space-y-2 mb-8 flex">
-      <ProductQuantitySelector />
+      {!isOutOfStock ? (
+          <ProductQuantitySelector />
+      ):(<></>)}
       <Product.SelectedVariant.AddToCartButton
         className={BUTTON_PRIMARY_CLASSES}
         disabled={isOutOfStock}
@@ -114,7 +116,8 @@ function SizeChart() {
   );
 }
 
-export default function ProductDetails({product}) {
+export default function ProductDetails(props) {
+  let product = props.product;
   // const {selectedOptions} = useProduct();
   const initialVariant = flattenConnection(product.variants)[0];
   // console.log(selectedOptions);
@@ -146,7 +149,8 @@ export default function ProductDetails({product}) {
             <div className="hidden md:block">
               <Product.Title
                 as="h1"
-                className="text-5xl font-bold text-black mb-4"
+                style={{'font-family': "'Garamond', Garamond, serif !important"}}
+                className="text-4xl font-bold text-black mb-4"
               />
               {/*{product.vendor && (
                 <div className="text-sm font-medium mb-2 text-gray-900">

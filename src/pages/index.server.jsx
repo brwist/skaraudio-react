@@ -15,9 +15,8 @@ import {Suspense} from 'react';
 
 export default function Index({country = {isoCode: 'US'}}) {
   return (
-    <Layout hero={<GradientBackground />}>
+    <Layout hero={<Welcome />}>
       <div className="relative mb-12">
-        <Welcome />
         <Suspense fallback={<BoxFallback />}>
           <FeaturedProductsBox country={country} />
         </Suspense>
@@ -101,6 +100,9 @@ function FeaturedCollectionBox({country}) {
 }
 
 function GradientBackground() {
+  // Note: The gradient background causes a bug with the header; disabling for now.
+  if (true) return (<></>);
+
   return (
     <div className="fixed top-0 w-full h-3/5 overflow-hidden">
       <div className="absolute w-full h-full bg-gradient-to-t from-gray-50 z-10" />
@@ -183,6 +185,7 @@ const QUERY = gql`
           products(first: $numProducts) {
             edges {
               node {
+                title
                 ...ProductProviderFragment
               }
             }

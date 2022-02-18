@@ -33,13 +33,15 @@ export function ProductQuantitySelector() {
                     className='
                         border-2
                         font-medium
-                        text-3xl
-                        px-4
-                        py-2
+                        text-2xl
+                        lg:px-4
+                        lg:py-1
+                        sm:px-2
+                        sm:py-1
                         bg-black-900
                         hover:bg-gray-100
                     '
-                    style={{height: '56px'}}
+                    style={{height: '46px'}}
                     onClick={(e) => setQtyProtected(quantity-1)}
                 >
                     -
@@ -47,14 +49,16 @@ export function ProductQuantitySelector() {
                 <input
                     type="text"
                     name='product-qty'
-                    style={{width: '80px', height: '56px'}}
+                    style={{width: '80px', height: '46px'}}
                     pattern="[0-9]*"
                     onInput={(e) => handleChange(e)} value={quantity}
                     onKeyDown={(e) => handleArrowChange(e)}
                     className='
                         border-2
-                        px-2
-                        py-4
+                        lg:px-4
+                        lg:py-2
+                        sm:px-2
+                        sm:py-1
                         text-center
                     '
                 />
@@ -62,13 +66,15 @@ export function ProductQuantitySelector() {
                     className='
                         border-2
                         font-medium
-                        text-3xl
-                        px-4
-                        py-2
+                        text-2xl
+                        lg:px-4
+                        lg:py-1
+                        sm:px-2
+                        sm:py-1
                         bg-black-900
                         hover:bg-gray-100
                     '
-                    style={{height: '56px'}}
+                    style={{height: '46px'}}
                     onClick={(e) => setQtyProtected(quantity + 1)}
                 >
                     +

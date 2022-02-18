@@ -44,7 +44,7 @@ export default function Gallery() {
           <MediaFile
             tabIndex="0"
             key={med.id || med.image.id}
-            className="w-[80vw] md:w-auto h-full md:h-auto object-cover object-center transition-all snap-start border border-gray-200 flex-shrink-0 rounded-lg"
+            className="w-[80vw] md:w-auto hidden md:block h-full md:h-auto object-cover object-center transition-all snap-start border border-gray-200 flex-shrink-0 rounded-lg"
             media={med}
             options={{
               height: '485',
