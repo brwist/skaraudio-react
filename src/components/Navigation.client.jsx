@@ -25,6 +25,7 @@ export default function Navigation({collections}) {
         <NavDropdown
           key={'collection.id'}
           className={'py-2 align-text-top'}
+          style={{color: 'black'}}
           title={collection.title}
         >
           <Dropdown.Item>
