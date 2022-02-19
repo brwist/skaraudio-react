@@ -9,11 +9,11 @@ export default function SearchBar() {
   return (
     <div className={''}>
       <input
-  className="p-0.5 text-xs"
-  type="text"
-  onKeyDown={callback.bind(this)}
-  placeholder={'Search'}
-  />
+        className="px-1 py-0.5 text-sm bg-gray-500 text-white"
+        type="text"
+        onKeyDown={callback.bind(this)}
+        placeholder={'Search'}
+      />
     </div>
   );
 }

@@ -15,6 +15,7 @@ export default function CartToggle({handleClick}) {
 
   return (
     <button
+      className="block"
       type="button"
       aria-expanded={isCartOpen}
       aria-controls="cart"

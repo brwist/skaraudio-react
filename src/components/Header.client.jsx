@@ -1,7 +1,4 @@
 import {useState} from 'react';
-import {Link} from '@shopify/hydrogen/client';
-
-import CartToggle from './CartToggle.client';
 import CurrencySelector from './CurrencySelector.client';
 import Navigation from './Navigation.client';
 import MobileNavigation from './MobileNavigation.client';
