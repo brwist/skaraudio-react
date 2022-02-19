@@ -1,7 +1,5 @@
 import SearchBar from './Searchbar.client';
-import {Link} from '@shopify/hydrogen/client.js';
 import CartToggle from './CartToggle.client.jsx';
-import {useState} from 'react';
 
 export default function PreHeaderBar() {
   // const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);

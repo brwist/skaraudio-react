@@ -33,12 +33,12 @@ export default function Navigation({collections}) {
         />
       </Link>
 
-      <RenderDropDownMenus collections={menu2} />
+      <RenderDropDownMenus collections={menu2} alignRight={true} />
     </div>
   );
 }
 
-function RenderDropDownMenus({collections}) {
+function RenderDropDownMenus({collections, alignRight}) {
   return (
     <>
       {collections.map((collection) => (
@@ -73,7 +73,10 @@ function RenderDropDownMenus({collections}) {
           >
             <Menu.Items
               className={
-                'origin-top-left absolute left-0 mt-2 w-56 rounded-md' +
+                (alignRight
+                  ? 'origin-top-right right-0 '
+                  : 'origin-top-left left-0 ') +
+                ' absolute mt-2 w-56 rounded-md' +
                 ' shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
               }
               style={{backgroundColor: 'rgba(27, 31, 35, 0.9)'}}
@@ -83,15 +86,12 @@ function RenderDropDownMenus({collections}) {
                   <Menu.Item key={product.node.id}>
                     {({active}) => (
                       <Link to={`/products/${product.node.handle}`}>
-                        <a
-                          href="#"
-                          className={classNames(
-                            active ? 'text-white' : 'text-gray-300',
-                            'block px-4 py-2 text-sm',
-                          )}
-                        >
-                          {product.node.title}
-                        </a>
+                        className=
+                        {classNames(
+                          active ? 'text-white' : 'text-gray-300',
+                          'block px-4 py-2 text-sm',
+                        )}
+                        >{product.node.title}
                       </Link>
                     )}
                   </Menu.Item>
