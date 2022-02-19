@@ -8,7 +8,7 @@ function classNames(...classes) {
 }
 
 export default function Navigation({collections}) {
-  console.log(collections);
+  console.dir(collections, {depth: null});
   const mid = Math.round(collections.length / 2);
   const menu1 = collections.slice(0, mid);
   const menu2 = collections.slice(mid);

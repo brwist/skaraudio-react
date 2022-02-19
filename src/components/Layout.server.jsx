@@ -83,9 +83,6 @@ const QUERY = gql`
           handle
           id
           title
-          image {
-            ...ImageFragment
-          }
           products(first: $numProducts) {
             edges {
               node {
@@ -109,3 +106,4 @@ const QUERY = gql`
   ${ProductProviderFragment}
   ${Image.Fragment}
 `;
+// console.log(QUERY);
