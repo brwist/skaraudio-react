@@ -7,13 +7,13 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={'relative'}>
+    <div className={''}>
       <input
-        className="p-1"
-        type="text"
-        onKeyDown={callback.bind(this)}
-        placeholder={'Search'}
-      ></input>
+  className="p-0.5 text-xs"
+  type="text"
+  onKeyDown={callback.bind(this)}
+  placeholder={'Search'}
+  />
     </div>
   );
 }

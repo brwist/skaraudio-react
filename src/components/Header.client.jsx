@@ -29,7 +29,7 @@ export default function Header({collections, storeName}) {
           }`}
         >
           <div className="h-full flex lg:flex-col place-content-between">
-            <div className="text-center w-full flex justify-between items-center">
+            <div className="text-center w-full flex justify-between items-center hidden">
               {hideCurrencySelector ? (
                 <>
                   <div className="hidden lg:block">&nbsp;</div>
@@ -42,22 +42,7 @@ export default function Header({collections, storeName}) {
                 isOpen={isMobileNavOpen}
                 setIsOpen={setIsMobileNavOpen}
               />
-              <Link
-                className={
-                  'font-black uppercase text-3xl tracking-widest'
-                }
-                to="/"
-              >
-                {/*{storeName}*/}
-                <img className={"transition-all ease-in-out duration-500"} src={'/image/site-logo.webp'}  alt={"Site Logo"}
-                     style={{width: 205, height: 63}}
-                />
-              </Link>
-              <CartToggle
-                handleClick={() => {
-                  if (isMobileNavOpen) setIsMobileNavOpen(false);
-                }}
-              />
+
             </div>
             <Navigation collections={collections} storeName={storeName} />
           </div>
