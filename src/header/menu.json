@@ -1,0 +1,52 @@
+{
+  "left": {
+    "categories": [
+      {
+        "category": "Amplifiers",
+        "collections": [
+          {
+            "title": "SK-M Series",
+            "id": "231400577",
+            "slug": "/collections/sk-mini-compact-car-audio-amplifiers",
+            "products": [
+              {
+                "id": "5943632001",
+                "sku": "SK-M5001D",
+                "slug": "/products/sk-m5001d-car-amplifier"
+              }
+            ]
+          },
+          {
+            "title": "RP Series",
+            "id": "211929985",
+            "slug": "/collections/rp-car-audio-amplifiers",
+            "products": [
+              {
+                "id": "4645866111023",
+                "sku": "RP-350.1D",
+                "slug": "/products/rp-350-1d-car-amplifier"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category": "Subwoofers",
+        "collections": [
+          {
+            "title": "IX Series",
+            "id": "210059201",
+            "slug": "/collections/ix-subwoofer-series",
+            "products": []
+          },
+          {
+            "title": "VD Series",
+            "id": "210593217",
+            "slug": "/collections/vd-subwoofer-series",
+            "products": []
+          }
+        ]
+      }
+    ]
+  }
+}
