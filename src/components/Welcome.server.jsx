@@ -133,9 +133,17 @@ function TemplateLinks() {
  */
 export default function Welcome() {
   return (
-    <a href={'/collections/sdr-series-loaded-bass-packages'}>
-      <img className={'w-100'} src={"/image/Tax_Sale_Main_Image_-_Desktop_copy_1600x.jpg"} />
-    </a>
+    <div className="mx-auto">
+      <a
+        href={'/collections/sdr-series-loaded-bass-packages'}
+        className="block w-full"
+      >
+        <img
+          className={'w-full'}
+          src={'/image/Tax_Sale_Main_Image_-_Desktop_copy_1600x.jpg'}
+        />
+      </a>
+    </div>
   );
 }
 

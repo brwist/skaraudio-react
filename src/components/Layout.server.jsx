@@ -12,6 +12,7 @@ import Footer from './Footer.server';
 import Cart from './Cart.client';
 import {Suspense} from 'react';
 import PreHeaderBar from './PreHeaderBar.server';
+import * as fs from 'fs';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
@@ -20,7 +21,7 @@ export default function Layout({children, hero}) {
   const {data} = useShopQuery({
     query: QUERY,
     variables: {
-      numCollections: 4,
+      numCollections: 14,
       numProducts: 6,
     },
     cache: {
@@ -31,6 +32,11 @@ export default function Layout({children, hero}) {
   const collections = data ? flattenConnection(data.collections) : null;
   const products = data ? flattenConnection(data.products) : null;
   const storeName = data ? data.shop.name : '';
+
+  const menu = JSON.parse(
+    fs.readFileSync('src/components/header/menu.json', 'utf8'),
+  );
+  console.log(menu);
 
   return (
     <LocalizationProvider>
@@ -46,7 +52,7 @@ export default function Layout({children, hero}) {
         {/* TODO: Find out why Suspense needs to be here to prevent hydration errors. */}
         <Suspense fallback={null}>
           <PreHeaderBar />
-          <Header collections={collections} storeName={storeName} />
+          <Header collections={collections} storeName={storeName} menu={menu} />
           <Cart />
         </Suspense>
         <main role="main" id="mainContent" className="relative bg-gray-50">
@@ -71,8 +77,9 @@ const QUERY = gql`
     $numProductVariantSellingPlanAllocations: Int = 0
     $numProductSellingPlanGroups: Int = 0
     $numProductSellingPlans: Int = 0
-    $numCollections: Int!, 
-    $numProducts: Int!) {
+    $numCollections: Int!
+    $numProducts: Int!
+  ) {
     shop {
       name
     }

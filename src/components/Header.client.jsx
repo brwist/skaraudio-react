@@ -6,7 +6,7 @@ import MobileNavigation from './MobileNavigation.client';
 /**
  * A client component that specifies the content of the header on the website
  */
-export default function Header({collections, storeName}) {
+export default function Header({collections, storeName, menu}) {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   let hideCurrencySelector = true;
@@ -17,7 +17,7 @@ export default function Header({collections, storeName}) {
         className="sticky top-0 left-0 right-0 z-20 w-full transition-[height] ease-in-out duration-500"
         role="banner"
         style={{
-          backgroundColor: 'rgb(49,53,57)'
+          backgroundColor: 'rgb(49,53,57)',
         }}
       >
         <div
@@ -39,9 +39,12 @@ export default function Header({collections, storeName}) {
                 isOpen={isMobileNavOpen}
                 setIsOpen={setIsMobileNavOpen}
               />
-
             </div>
-            <Navigation collections={collections} storeName={storeName} />
+            <Navigation
+              collections={collections}
+              storeName={storeName}
+              menu={menu}
+            />
           </div>
         </div>
       </header>
