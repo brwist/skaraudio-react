@@ -1,6 +1,6 @@
 import {Menu, Transition} from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
-import {Link} from '@shopify/hydrogen/client.js';
+import {Link} from '@shopify/hydrogen/client';
 import {Fragment} from 'react';
 import {classNames} from '../../helpers/class-names.js';
 
@@ -38,26 +38,27 @@ export function RenderDropDownMenus({categories, alignRight}) {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items
-              className={
-                (alignRight
+              className={classNames(
+                alignRight
                   ? 'origin-top-right right-0 '
-                  : 'origin-top-left left-0 ') +
-                ' absolute mt-2 w-56 rounded-md' +
-                ' shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
-              }
+                  : 'origin-top-left left-0 ',
+                ' absolute mt-2 w-56 rounded-md',
+                ' shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
+              )}
               style={{backgroundColor: 'rgba(27, 31, 35, 0.9)'}}
             >
               <div className="py-1">
                 {category.collections.map((collection) => (
                   <Menu.Item key={collection.id}>
                     {({active}) => (
-                      <Link to={`/products/${collection.slug}`}>
-                        className=
-                        {classNames(
+                      <Link
+                        to={`${collection.slug}`}
+                        className={classNames(
                           active ? 'text-white' : 'text-gray-300',
                           'block px-4 py-2 text-sm',
                         )}
-                        >{collection.title}
+                      >
+                        {collection.title}
                       </Link>
                     )}
                   </Menu.Item>

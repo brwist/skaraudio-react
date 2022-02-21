@@ -13,6 +13,7 @@ import Cart from './Cart.client';
 import {Suspense} from 'react';
 import PreHeaderBar from './header/PreHeaderBar.server.jsx';
 import * as fs from 'fs';
+import {getMenu} from '../helpers/get-menu.js';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
@@ -32,11 +33,7 @@ export default function Layout({children, hero}) {
   const collections = data ? flattenConnection(data.collections) : null;
   const products = data ? flattenConnection(data.products) : null;
   const storeName = data ? data.shop.name : '';
-
-  const menu = JSON.parse(
-    fs.readFileSync('src/components/header/menu.json', 'utf8'),
-  );
-  console.log(menu);
+  const menu = getMenu();
 
   return (
     <LocalizationProvider>
