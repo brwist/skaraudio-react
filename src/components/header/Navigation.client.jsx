@@ -1,8 +1,6 @@
 import {Link} from '@shopify/hydrogen/client';
-import {Fragment} from 'react';
-import {Menu, Transition} from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
-import {RenderDropDownMenus} from './header/render-menu.js';
+import {RenderDropDownMenus} from './render-menu.jsx';
 
 export default function Navigation({collections, menu}) {
   // console.dir(collections, {depth: null});
@@ -15,7 +13,7 @@ export default function Navigation({collections, menu}) {
 
   return (
     <div className={'hidden lg:flex flex-row justify-between'}>
-      <RenderDropDownMenus collections={menu1} />
+      <RenderDropDownMenus categories={menu1} />
 
       <Link
         className={
@@ -33,7 +31,7 @@ export default function Navigation({collections, menu}) {
         />
       </Link>
 
-      <RenderDropDownMenus collections={menu2} alignRight={true} />
+      <RenderDropDownMenus categories={menu2} alignRight={true} />
     </div>
   );
 }

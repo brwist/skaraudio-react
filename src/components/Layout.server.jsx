@@ -7,11 +7,11 @@ import {
 } from '@shopify/hydrogen';
 import gql from 'graphql-tag';
 
-import Header from './Header.client';
+import Header from './header/Header.client.jsx';
 import Footer from './Footer.server';
 import Cart from './Cart.client';
 import {Suspense} from 'react';
-import PreHeaderBar from './PreHeaderBar.server';
+import PreHeaderBar from './header/PreHeaderBar.server.jsx';
 import * as fs from 'fs';
 
 /**
@@ -22,7 +22,7 @@ export default function Layout({children, hero}) {
     query: QUERY,
     variables: {
       numCollections: 14,
-      numProducts: 6,
+      numProducts: 3,
     },
     cache: {
       maxAge: 60,
@@ -68,18 +68,7 @@ export default function Layout({children, hero}) {
 }
 
 const QUERY = gql`
-  query indexContent(
-    $includeReferenceMetafieldDetails: Boolean = false
-    $numProductMetafields: Int = 20
-    $numProductVariants: Int = 250
-    $numProductMedia: Int = 6
-    $numProductVariantMetafields: Int = 10
-    $numProductVariantSellingPlanAllocations: Int = 0
-    $numProductSellingPlanGroups: Int = 0
-    $numProductSellingPlans: Int = 0
-    $numCollections: Int!
-    $numProducts: Int!
-  ) {
+  query indexContent($numCollections: Int!) {
     shop {
       name
     }
@@ -90,14 +79,6 @@ const QUERY = gql`
           handle
           id
           title
-          products(first: $numProducts) {
-            edges {
-              node {
-                handle
-                ...ProductProviderFragment
-              }
-            }
-          }
         }
       }
     }
@@ -109,8 +90,5 @@ const QUERY = gql`
       }
     }
   }
-
-  ${ProductProviderFragment}
-  ${Image.Fragment}
 `;
 // console.log(QUERY);

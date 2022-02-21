@@ -3,7 +3,7 @@ import {Link} from '@shopify/hydrogen/client';
 
 import CartToggle from './CartToggle.client';
 import CurrencySelector from './CurrencySelector.client';
-import Navigation from './Navigation.client';
+import Navigation from './header/Navigation.client.jsx';
 import MobileNavigation from './MobileNavigation.client';
 
 /**

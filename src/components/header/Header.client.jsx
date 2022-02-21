@@ -1,7 +1,7 @@
 import {useState} from 'react';
-import CurrencySelector from './CurrencySelector.client';
-import Navigation from './Navigation.client';
-import MobileNavigation from './MobileNavigation.client';
+import CurrencySelector from '../CurrencySelector.client.jsx';
+import Navigation from './Navigation.client.jsx';
+import MobileNavigation from '../MobileNavigation.client.jsx';
 
 /**
  * A client component that specifies the content of the header on the website

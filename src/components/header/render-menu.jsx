@@ -1,15 +1,17 @@
 import {Menu, Transition} from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
 import {Link} from '@shopify/hydrogen/client.js';
+import {Fragment} from 'react';
+import {classNames} from '../../helpers/class-names.js';
 
-export function RenderDropDownMenus({collections, alignRight}) {
+export function RenderDropDownMenus({categories, alignRight}) {
   return (
     <>
-      {collections.map((collection) => (
+      {categories.map((category) => (
         <Menu
           as="div"
           className="relative inline-block text-left"
-          key={collection.id}
+          key={category.id}
         >
           <div>
             <Menu.Button
@@ -18,7 +20,7 @@ export function RenderDropDownMenus({collections, alignRight}) {
                 'text-sm font-medium text-white focus:outline-none '
               }
             >
-              {collection.title}
+              {category.category} ({category.collections.length})
               <ChevronDownIcon
                 className="-mr-1 ml-2 h-5 w-5"
                 aria-hidden="true"
@@ -46,16 +48,16 @@ export function RenderDropDownMenus({collections, alignRight}) {
               style={{backgroundColor: 'rgba(27, 31, 35, 0.9)'}}
             >
               <div className="py-1">
-                {collection.products.edges.map((product) => (
-                  <Menu.Item key={product.node.id}>
+                {category.collections.map((collection) => (
+                  <Menu.Item key={collection.id}>
                     {({active}) => (
-                      <Link to={`/products/${product.node.handle}`}>
+                      <Link to={`/products/${collection.slug}`}>
                         className=
                         {classNames(
                           active ? 'text-white' : 'text-gray-300',
                           'block px-4 py-2 text-sm',
                         )}
-                        >{product.node.title}
+                        >{collection.title}
                       </Link>
                     )}
                   </Menu.Item>
@@ -68,3 +70,17 @@ export function RenderDropDownMenus({collections, alignRight}) {
     </>
   );
 }
+
+/**
+ * @typedef MenuCategory
+ * @property id {string}
+ * @property category {string}
+ * @property collections {MenuCollection[]}
+ */
+
+/**
+ * @typedef MenuCollection
+ * @property id {string}
+ * @property title {string}
+ * @property slug {string}
+ */

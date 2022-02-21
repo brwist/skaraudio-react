@@ -1,5 +1,5 @@
-import SearchBar from './Searchbar.client';
-import CartToggle from './CartToggle.client.jsx';
+import SearchBar from '../Searchbar.client.jsx';
+import CartToggle from '../CartToggle.client.jsx';
 
 export default function PreHeaderBar() {
   // const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
