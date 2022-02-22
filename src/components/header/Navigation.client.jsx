@@ -23,7 +23,7 @@ export default function Navigation({collections, menu}) {
 				}
 				to="/"
 			>
-				{/*{storeName}*/}
+				{/*{storeName}*/}//s
 				<img
 					className={'block transition-all ease-in-out duration-500'}
 					src={'/image/site-logo.webp'}
