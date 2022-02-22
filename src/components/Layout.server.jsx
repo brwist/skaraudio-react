@@ -1,19 +1,12 @@
-import {
-  Image,
-  useShopQuery,
-  flattenConnection,
-  ProductProviderFragment,
-  LocalizationProvider,
-} from '@shopify/hydrogen';
 import gql from 'graphql-tag';
-
+import {Suspense} from 'react';
 import Header from './header/Header.client.jsx';
 import Footer from './Footer.server';
 import Cart from './Cart.client';
-import {Suspense} from 'react';
 import PreHeaderBar from './header/PreHeaderBar.server.jsx';
-import * as fs from 'fs';
+import {useShopQuery,  flattenConnection, LocalizationProvider} from '@shopify/hydrogen';
 import {getMenu} from '../helpers/get-menu.js';
+import * as fs from 'fs';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app
