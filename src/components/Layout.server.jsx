@@ -6,7 +6,6 @@ import Cart from './Cart.client';
 import PreHeaderBar from './header/PreHeaderBar.server.jsx';
 import {useShopQuery,  flattenConnection, LocalizationProvider} from '@shopify/hydrogen';
 import {getMenu} from '../helpers/get-menu.js';
-import * as fs from 'fs';
 
 /**
  * A server component that defines a structure and organization of a page that can be used in different parts of the Hydrogen app

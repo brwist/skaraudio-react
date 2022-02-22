@@ -21,7 +21,7 @@ export default function PreHeaderBar() {
         }
       ></div>
 
-      <div className="flex basis-1/3 py-0.5 justify-items-end items-center place-content-end">
+      <div className="flex basis-1/3 justify-items-end items-center place-content-end">
         <SearchBar />
 
         <a

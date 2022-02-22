@@ -14,7 +14,7 @@ export default function Header({collections, storeName, menu}) {
   return (
     <>
       <header
-        className="sticky top-0 left-0 right-0 z-20 w-full transition-[height] ease-in-out duration-500"
+        className="sticky py-6 top-0 left-0 right-0 z-20 w-full transition-[height] ease-in-out duration-500"
         role="banner"
         style={{
           backgroundColor: 'rgb(49,53,57)',
