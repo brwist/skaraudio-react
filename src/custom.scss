@@ -15,13 +15,20 @@
 	//border-radius: 1vh;
 }
 
-@font-face {
-	font-family: Oswald;
-	src: url('/fonts/Arial.woff')
-}
+// https://fonts.google.com/specimen/Oswald
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
 
 .font-oswald {
 	font-family: Oswald, sans-serif;
+}
+
+.font-oswald-light {
+	font-family: Oswald, sans-serif;
+	font-weight: lighter;
+}
+
+.letter-spacing-2x {
+	letter-spacing: 2px;
 }
 
 .menu-bg-color {

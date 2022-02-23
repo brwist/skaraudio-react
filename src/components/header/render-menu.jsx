@@ -55,6 +55,7 @@ export function RenderDropDownMenus({categories, alignRight}) {
               <div className="py-1">
                 {category.collections.map((collection) => {
                   const currentPage = collection.slug === url.pathname;
+                  console.log(collection.id, collection.title);
                   return (
                     <Menu.Item key={collection.id}>
                       {({active}) =>
@@ -65,7 +66,7 @@ export function RenderDropDownMenus({categories, alignRight}) {
                               collection['sub-collections'] ??
                               collection['products']
                             }
-                            to={`${collection.slug}`}
+                            active={active}
                             className={classNames(
                               active ? 'text-white' : 'text-gray-300',
                               'block px-4 py-2 text-sm font-oswald uppercase',
@@ -78,7 +79,7 @@ export function RenderDropDownMenus({categories, alignRight}) {
                             to={`${collection.slug}`}
                             className={classNames(
                               currentPage ? 'text-orange-100' : 'text-white',
-                              'block px-4 py-2 text-sm uppercase hover:underline',
+                              'block px-4 py-2 text-sm uppercase font-oswald hover:underline',
                             )}
                           >
                             {collection.title}
@@ -97,7 +98,7 @@ export function RenderDropDownMenus({categories, alignRight}) {
   );
 }
 
-export function RenderDropRightMenus({products, children}) {
+export function RenderDropRightMenus({products, children, active}) {
   return (
     <Menu as="div" className="relative text-left">
       <Menu.Button
@@ -105,6 +106,7 @@ export function RenderDropRightMenus({products, children}) {
           'inline-flex w-full px-4 py-2 uppercase',
           'text-sm font-medium text-white focus:outline-zinc-600',
           'font-oswald whitespace-nowrap hover:underline',
+          active && 'underline',
         )}
       >
         {children}
@@ -122,9 +124,9 @@ export function RenderDropRightMenus({products, children}) {
       >
         <Menu.Items
           className={classNames(
-            'origin-top-left left-0 ',
-            ' absolute mt-2 w-56 rounded-md menu-bg-color ',
-            ' shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
+            'origin-top-left left-0',
+            'absolute mt-2 w-56 rounded-md menu-bg-color',
+            'shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
           )}
           style={{marginLeft: '224px', marginTop: '-34px'}}
         >
@@ -137,7 +139,7 @@ export function RenderDropRightMenus({products, children}) {
                       to={`${product.slug}`}
                       className={classNames(
                         active ? 'text-white' : 'text-gray-300',
-                        'block px-4 py-2 text-sm',
+                        'block px-4 py-2 text-sm font-oswald',
                       )}
                     >
                       {product.sku}

@@ -128,7 +128,7 @@ export default function ProductDetails(props) {
           <div className="md:hidden mt-5 mb-8">
             <Product.Title
               as="h1"
-              className="text-4xl font-bold text-black mb-4"
+              className="text-4xl font-bold text-black mb-4 "
             />
             {product.vendor && (
               <div className="text-sm font-medium mb-2 text-gray-900">
@@ -147,8 +147,7 @@ export default function ProductDetails(props) {
             <div className="hidden md:block">
               <Product.Title
                 as="h1"
-                style={{fontFamily: "'Garamond', Garamond, serif !important"}}
-                className="text-4xl font-bold text-black mb-4"
+                className="text-4xl font-bold text-black mb-4 font-oswald-light letter-spacing-2x uppercase"
               />
               {/*{product.vendor && (
                 <div className="text-sm font-medium mb-2 text-gray-900">
