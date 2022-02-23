@@ -5,6 +5,6 @@ export function getMenu() {
   const menu = JSON.parse(
     fs.readFileSync('src/components/header/menu.json', 'utf8'),
   );
-  console.log(menu);
+  // console.log(menu);
   return menu;
 }

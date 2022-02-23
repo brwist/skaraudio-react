@@ -8,6 +8,9 @@ export default defineConfig({
   plugins: [hydrogen(shopifyConfig)],
   optimizeDeps: {include: ['@headlessui/react']},
   server: {
-    port: 3011
-  }
+    port: 3011,
+  },
+  ssr: {
+    // noExternal: false,
+  },
 });
