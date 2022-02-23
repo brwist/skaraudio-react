@@ -11,7 +11,7 @@ Hydrogen is a React framework and SDK that you can use to build fast and dynamic
 - Node v14+
 - Yarn
 
-```bash
+```bash  
 yarn
 yarn dev
 ```
