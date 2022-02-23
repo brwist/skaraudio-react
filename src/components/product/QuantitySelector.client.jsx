@@ -34,9 +34,9 @@ export function ProductQuantitySelector() {
                         border-2
                         font-medium
                         text-2xl
-                        lg:px-4
+                        lg:px-8
                         lg:py-1
-                        sm:px-2
+                        sm:px-3
                         sm:py-1
                         bg-black-900
                         hover:bg-gray-100
@@ -67,7 +67,7 @@ export function ProductQuantitySelector() {
                         border-2
                         font-medium
                         text-2xl
-                        lg:px-4
+                        lg:px-8
                         lg:py-1
                         sm:px-2
                         sm:py-1

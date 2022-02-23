@@ -43,8 +43,8 @@ export default function ProductOptions() {
                       onChange={() => setSelectedOption(name, value)}
                     />
                     <div
-                      className={`p-2 border cursor-pointer rounded text-sm md:text-md ${
-                        checked ? 'bg-gray-900 text-white' : 'text-gray-900'
+                      className={` rounded-lg  p-2 px-5 border cursor-pointer rounded text-sm md:text-md ${
+                        checked ? 'hover:bg-gray-700 bg-gray-900 text-white' : 'hover:bg-gray-200 text-gray-900'
                       }`}
                     >
                       {value}
