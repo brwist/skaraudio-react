@@ -44,21 +44,20 @@ export function FourTabs({tabNames, sections}) {
   return (
     <>
       <ul
-        className="w-full nav nav-tabs flex flex-col justify-items-stretch md:flex-row flex-wrap list-none pl-1 pb-0"
+        className="nav nav-tabs flex flex-col justify-left md:flex-row flex-wrap list-none pl-1 pb-0"
         id="tabs-tab"
         role="tablist"
       >
         {tabNames.map((tabName) => (
-          <li className="nav-item flex-1" role="presentation" key={tabName}>
+          <li className="nav-item" role="presentation" key={tabName}>
             <a
               href={'#' + tabName}
               onClick={(e) => clickTab(e, tabName)}
               className={
                 `nav-link
               block
-              font-mono
+              font-medium
               text-xs
-              text-center
               leading-tight
               uppercase
               md:px-1
@@ -86,7 +85,7 @@ export function FourTabs({tabNames, sections}) {
           <div
             key={tabName}
             className={
-              'font-mono prose tab-pane fade ' +
+              'prose tab-pane fade ' +
               (tab === tabName ? 'show active' : 'hidden')
             }
             id="tabs-home"
