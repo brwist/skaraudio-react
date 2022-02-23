@@ -151,6 +151,7 @@
         ]
       },
       {
+        "id": "subwoofers",
         "category": "Subwoofers",
         "collections": [
           {
@@ -367,6 +368,7 @@
         ]
       },
       {
+        "id": "speakers",
         "category": "Speakers",
         "collections": [
           {
@@ -450,6 +452,7 @@
   "right": {
     "categories": [
       {
+        "id": "loaded-enclosures",
         "category": "Loaded Enclosures",
         "collections": [
           {
@@ -506,6 +509,7 @@
         ]
       },
       {
+        "id": "empty-enclosures",
         "category": "Empty Enclosures",
         "collections": [
           {
@@ -658,6 +662,7 @@
         ]
       },
       {
+        "id": "amp-kits-wiring-more",
         "category": "Amp Kits, Wiring & More",
         "collections": [
           {
@@ -754,6 +759,7 @@
         ]
       },
       {
+        "id": "equalizers",
         "category": "Equalizers",
         "collections": [
           {
