@@ -133,7 +133,7 @@ function TemplateLinks() {
  */
 export default function Welcome() {
   return (
-    <div className="mx-auto">
+    <div className="container mx-auto">
       <a
         href={'/collections/sdr-series-loaded-bass-packages'}
         className="block w-full"
