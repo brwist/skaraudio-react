@@ -16,7 +16,7 @@ export default function SearchBar() {
     },
   });
 
-  console.log(data);
+  // console.log(data);
 
   // Do the actual query
   let results = (
@@ -24,7 +24,7 @@ export default function SearchBar() {
       (
       <>
         {data.products.edges.map((product) => {
-          console.log(product);
+          // console.log(product);
           return <>{product.node.title}</>;
         })}
         )
@@ -35,10 +35,7 @@ export default function SearchBar() {
 
   return (
     <div className={'relative'}>
-      <input
-        type="text"
-        placeholder={'Search'}
-      ></input>
+      <input type="text" placeholder={'Search'}></input>
       {results}
     </div>
   );
@@ -46,7 +43,7 @@ export default function SearchBar() {
 
 const QUERY = gql`
   query products(
-#    $term: String!
+    #    $term: String!
     $includeReferenceMetafieldDetails: Boolean = true
     $numProductMetafields: Int = 20
     $numProductVariants: Int = 250
@@ -56,19 +53,19 @@ const QUERY = gql`
     $numProductSellingPlanGroups: Int = 0
     $numProductSellingPlans: Int = 0
   ) {
-      products: products(first: 5, query: "title:*ix OR ix*") {
-          edges{
-              node{
-                  id
-                  vendor
-                  seo {
-                      title
-                      description
-                  }
-                  ...ProductProviderFragment
-              }
+    products: products(first: 5, query: "title:*ix OR ix*") {
+      edges {
+        node {
+          id
+          vendor
+          seo {
+            title
+            description
           }
+          ...ProductProviderFragment
+        }
       }
+    }
   }
 
   ${ProductProviderFragment}

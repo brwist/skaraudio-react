@@ -55,7 +55,7 @@ export function RenderDropDownMenus({categories, alignRight}) {
               <div className="py-1">
                 {category.collections.map((collection) => {
                   const currentPage = collection.slug === url.pathname;
-                  console.log(collection.id, collection.title);
+                  // console.log(collection.id, collection.title);
                   return (
                     <Menu.Item key={collection.id}>
                       {({active}) =>

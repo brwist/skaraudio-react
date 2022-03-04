@@ -7,6 +7,7 @@ import AppClient from './App.client';
 import LoadingFallback from './components/LoadingFallback';
 
 export default function App({log, pages, ...serverState}) {
+  // console.log(pages);
   return (
     <Suspense fallback={<LoadingFallback />}>
       <AppClient helmetContext={serverState.helmetContext}>
