@@ -12,7 +12,7 @@ export default function App({log, pages, ...serverState}) {
   return (
     <Suspense fallback={<LoadingFallback />}>
       <AppClient helmetContext={serverState.helmetContext}>
-        <WishlistProvider data={serverState.wishilist}>
+        <WishlistProvider>
           <DefaultSeo />
           <DefaultRoutes
             pages={pages}
