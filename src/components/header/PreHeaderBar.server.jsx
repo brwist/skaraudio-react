@@ -8,8 +8,9 @@ export default function PreHeaderBar() {
     <div
       className="px-5 flex flex-row justify-between py-1 z-20"
       style={{backgroundColor: 'rgb(27,31,35)'}}
+      id="header_top_wrapper"
     >
-      <div className={'basis-1/3 flex items-center'}>
+      <div className={'basis-1/3 flex items-center'} id="header_top_contact_wrapper">
         <div className="py-0.5 text-gray-100">Contact: +1 123 123 123</div>
       </div>
 
@@ -21,7 +22,7 @@ export default function PreHeaderBar() {
         }
       ></div>
 
-      <div className="flex basis-1/3 justify-items-end items-center place-content-end">
+      <div className="flex basis-1/3 justify-items-end items-center place-content-end" id='header_top_search_login_wrapper'>
         <SearchBar />
 
         <a

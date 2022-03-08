@@ -26,7 +26,7 @@ export default function Header({collections, storeName, menu}) {
           }`}
         >
           <div className="h-full flex lg:flex-col place-content-between">
-            <div className="text-center w-full flex justify-between items-center hidden">
+            <div className="text-center w-full flex justify-between items-center hidden" id="mobile_menu_wrapper">
               {hideCurrencySelector ? (
                 <>
                   <div className="hidden lg:block">&nbsp;</div>

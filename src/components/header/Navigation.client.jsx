@@ -12,7 +12,7 @@ export default function Navigation({collections, menu}) {
   const menu2 = menu.right.categories;
 
   return (
-    <div className="flex flex-row justify-around">
+    <div className="flex flex-row justify-around" id="logo_wrapper">
       <div
         className={
           'hidden lg:flex flex-row justify-center flex-wrap grow-0 shrink-0 basis-2/5'
