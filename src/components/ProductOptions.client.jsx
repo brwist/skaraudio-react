@@ -1,11 +1,13 @@
 import {useProduct} from '@shopify/hydrogen/client';
+import AddToWishlist from './AddToWishlist';
+import {useState} from 'react';
 
 /**
  * A client component that tracks a selected variant and/or selling plan state, as well as callbacks for modifying the state
  */
 export default function ProductOptions() {
   const {options, setSelectedOption, selectedOptions} = useProduct();
-
+  const [showModal, setShowModal] = useState(false);
   // let url = new URL(window.location.href);
   // let variant = url.searchParams.get('variant');
   // console.log(variant);
@@ -52,10 +54,17 @@ export default function ProductOptions() {
                   </label>
                 );
               })}
+              <button
+                onClick={() => setShowModal(true)}
+                className="grow uppercase font-medium py-3 rounded text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700"
+              >
+                Add To Wishlist
+              </button>
             </div>
           </fieldset>
         );
       })}
+      {showModal && <AddToWishlist setShowModal={setShowModal} />}
     </>
   );
 }
