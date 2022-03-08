@@ -1,11 +1,13 @@
 import {Link} from '@shopify/hydrogen/client';
 
 const DEFAULT_CLASSES =
-  'block m-0 w-full items-center justify-center uppercase font-medium text-center lg:px-6 lg:py-3 sm:px-3 sm:py-2 rounded disabled:border-gray-300 disabled:bg-gray-300 disabled:cursor-not-allowed';
+  'block m-0 w-full items-center justify-center uppercase font-medium text-center py-2 lg:px-6 lg:py-3 sm:px-3 sm:py-2 rounded disabled:border-gray-300 disabled:bg-gray-300 disabled:cursor-not-allowed';
 
 const VARIANT_CLASSES = {
-  primary: 'text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700',
-  secondary: 'bg-white hover:bg-gray-50 active:bg-gray-100 border border-black',
+  primary:
+    'text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700 radius rounded-full',
+  secondary:
+    'bg-white hover:bg-gray-50 active:bg-gray-100 border border-black rounded-full',
 };
 
 export const BUTTON_PRIMARY_CLASSES = `${DEFAULT_CLASSES} ${VARIANT_CLASSES.primary}`;

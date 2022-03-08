@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import {useState} from 'react';
 import {Product, flattenConnection, useProduct} from '@shopify/hydrogen/client';
 
 import ProductOptions from './ProductOptions.client';
@@ -10,6 +10,8 @@ import {
 } from './Button.client';
 import {DescriptionTabs} from './custom/description-tabs.jsx';
 import {ProductQuantitySelector} from './product/QuantitySelector.client';
+import WishListButton from './Wishlist.client';
+import {useWishlistContext} from './WishlistContext.client';
 
 /**
  * A client component that displays detailed information about a product to allow buyers to make informed decisions
@@ -40,24 +42,37 @@ function ProductPriceMarkup() {
 }
 
 function AddToCartMarkup() {
+  const {isAlreadyAdded} = useWishlistContext();
+  const product = useProduct();
   const {selectedVariant} = useProduct();
   const isOutOfStock = !selectedVariant.availableForSale;
   const [quantity, setQuantity] = useState(1);
   const updateQuantity = (qty) => {
     setQuantity(qty);
-  }
+  };
 
   return (
-    <div className="space-y-2 mb-8 flex">
-      {!isOutOfStock ? <ProductQuantitySelector onQuantityChange= {updateQuantity} /> : <></>}
-      <Product.SelectedVariant.AddToCartButton
-        className={BUTTON_PRIMARY_CLASSES}
-        disabled={isOutOfStock}
-        style={{margin: 0}}
-        quantity={quantity}
-      >
-        {isOutOfStock ? 'Out of stock' : 'Add to Cart'}
-      </Product.SelectedVariant.AddToCartButton>
+    <div className="space-y-2 mb-8 flex flex-col w-full md:flex-row md:justify-end">
+      {!isOutOfStock ? (
+        <ProductQuantitySelector onQuantityChange={updateQuantity} />
+      ) : (
+        <></>
+      )}
+      <div className="w-full d-flex flex-col">
+        <WishListButton
+          className={`${BUTTON_SECONDARY_CLASSES} mb-3 rounded-full`}
+        >
+          {isAlreadyAdded(product) ? 'Added' : 'Add'} to wishilist
+        </WishListButton>
+        <Product.SelectedVariant.AddToCartButton
+          className={BUTTON_PRIMARY_CLASSES}
+          disabled={isOutOfStock}
+          style={{margin: 0}}
+          quantity={quantity}
+        >
+          {isOutOfStock ? 'Out of stock' : 'Add to Cart'}
+        </Product.SelectedVariant.AddToCartButton>
+      </div>
       {isOutOfStock ? (
         <p className="text-black text-center">Available in 2-3 weeks</p>
       ) : (
