@@ -74,7 +74,7 @@ const WishlistPopup = ({data, onClose}) => {
             className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 absolute top-1 right-1"
             onClick={handleClose}
           >
-            <span className="sr-only">Close menu</span>
+            <span className="sr-only">Close Popup</span>
             <svg
               className="h-6 w-6"
               xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +96,6 @@ const WishlistPopup = ({data, onClose}) => {
               </h1>
             </ProductProvider>
           </div>
-          {/* <div className="flex justify-center">
-            <button className="flex-no-shrink text-white py-2 px-4 rounded bg-teal hover:bg-teal-dark">
-              Let's Go
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
